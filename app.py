@@ -69,8 +69,8 @@ if symbol:
         USD_TO_INR = 83
 
         if currency == "INR (₹)":
-            price = price * USD_TO_INR
-            market_cap = market_cap * USD_TO_INR
+            price *= USD_TO_INR
+            market_cap *= USD_TO_INR
             price_symbol = "₹"
         else:
             price_symbol = "$"
@@ -96,38 +96,4 @@ if symbol:
             ["📊 Key Metrics", "🧠 AI Insight", "⚠️ Risks"]
         )
 
-        # ---------- TAB 1 ----------
-        with tab1:
-            metrics = {
-                "PE Ratio": info.get("trailingPE"),
-                "EPS": info.get("trailingEps"),
-                "Dividend Yield": info.get("dividendYield"),
-                "52 Week High": info.get("fiftyTwoWeekHigh"),
-                "52 Week Low": info.get("fiftyTwoWeekLow"),
-            }
-            df = pd.DataFrame(metrics.items(), columns=["Metric", "Value"])
-            st.dataframe(df, use_container_width=True)
-
-        # ---------- TAB 2 ----------
-        with tab2:
-            st.subheader("🧠 What StockMind AI Thinks (Early View)")
-            st.write(
-                "This is an early-stage analysis based on publicly available data. "
-                "The stock shows **moderate to strong stability** as a large-cap company."
-            )
-
-            st.progress(65)
-            st.caption("Confidence Score: 65%")
-
-            st.markdown("### 👤 Suitable For")
-            st.info(
-                "• Long-term investors\n"
-                "• Blue-chip focused portfolios\n"
-                "• Moderate risk tolerance"
-            )
-
-        # ---------- TAB 3 ----------
-        with tab3:
-            st.warning(
-                "• Market volatility\n"
-                "• Sector-rela
+        # ---------- TAB
